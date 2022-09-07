@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <link
+      rel="stylesheet"
+      href="node_modules/@telekom/scale-components/dist/scale-components/scale-components.css"
+    />
+    <script
+      type="module"
+      src="node_modules/@telekom/scale-components/dist/scale-components/scale-components.esm.js"
+    ></script>
+    <style>
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        color: var(--telekom-color-text-and-icon-standard);
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 480px;
+      }
+
+      scale-button {
+        --width: 100%;
+        --min-height: 48px;
+      }
+
+      .text-field {
+        margin-top: 12px;
+      }
+
+      scale-checkbox {
+        margin: 8px 0 24px 0;
+      }
+
+      scale-button[variant="secondary"]::part(base) {
+        margin-top: 12px;
+      }
+    </style>
+  </head>
+  <body data-mode="dark">
+    <scale-app-shell claim-lang="de" logo-title="App Name" logo-href="/">
+      <main>
+        <scale-notification-message dismissible opened>
+          Neue Datenschutzhinweise!
+
+          <p slot="text">
+            Wir haben unsere Datenschutzhinweise für den Telekom Login
+            aktualisiert. Sie können diese
+            <scale-link>hier</scale-link> nachlesen.
+          </p>
+        </scale-notification-message>
+        <h3>TELEKOM.DE</h3>
+        <h1>Telekom Login Passwort eingeben</h1>
+        <form>
+          <scale-text-field
+            id="username"
+            label="Benutzername"
+          ></scale-text-field>
+          <scale-text-field id="password" label="Passwort"></scale-text-field>
+          <scale-checkbox label="Angemeldet bleiben"></scale-checkbox>
+          <scale-button>Login</scale-button>
+          <scale-button variant="secondary"
+            >Andere Anmeldeoptionen</scale-button
+          >
+        </form>
+      </main>
+      <scale-app-footer
+        id="footer"
+        claim-lang="en"
+        variant="minimal"
+        slot="footer"
+      >
+      </scale-app-footer>
+
+      <script>
+        const footer = document.getElementById("footer");
+        footer.footerNavigation = [
+          { name: "Contact", id: "Contact", href: "#contact" },
+          {
+            name: "Terms and conditions",
+            id: "Terms and conditions",
+            href: "#terms-and-conditions",
+          },
+          { name: "Legal notice", id: "Legal notice", href: "#legal-notice" },
+          {
+            name: "Data privacy",
+            id: "Data privacy",
+            href: "#data-privacy",
+            icon: "alert-imprint-dataprivacy",
+          },
+        ];
+      </script>
+    </scale-app-shell>
+  </body>
+</html>
